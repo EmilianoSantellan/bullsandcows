@@ -82,7 +82,7 @@ public class StartGameActivity extends AppCompatActivity {
     }
 
     // This method takes the input string that was converted to array and checks it with the final array
-    public void checkForDucks(int [] ar, int [] arr){
+    public void checkForBulls(int [] ar, int [] arr){
         for(int i = 0; i < arr.length; i++){
             if(ar[i] != arr[i]){
                 if(ar[i] == arr[0] || ar[i] == arr[1] || ar[i] == arr[2] || ar[i] == arr[3]){
@@ -150,18 +150,18 @@ public class StartGameActivity extends AppCompatActivity {
                 convert(numberGuessed,currentGuess);
 
                 tries++;
-                checkForDucks(currentGuess,numberToGuess);
+                checkForBulls(currentGuess,numberToGuess);
                 duckCount.setText(toString(bulls));
 
                 checkForDragons(currentGuess,numberToGuess);
                 dragonCount.setText(toString(cows));
 
                 triesText.setText(toString(tries));
-                message.setText("I see you are getting near! :)");
+                message.setText("Veo que usted se está acercando! :)");
 
                 // when we have 4 dragons that means the game is over
                 if(cows == 4){
-                    message.setText("You have guessed the number in " + tries + " tries, impressive!" );
+                    message.setText("Usted ha adivinado el número en " + tries + " intentos, impresionante!" );
                     inputNumber.setEnabled(false);
                     submitButton.setEnabled(false);
                     numberDisplay.setText(numberFinal);
@@ -169,15 +169,16 @@ public class StartGameActivity extends AppCompatActivity {
                 }
             }
             else{
-                checkForDucks(currentGuess,numberToGuess);
+                checkForBulls(currentGuess,numberToGuess);
                 checkForDragons(currentGuess,numberToGuess);
-                message.setText("You already tried this and the result was: " + bulls + " Ducks, " + cows + " Dragons.");
+                message.setText("Ya probaste esto y el resultado fue:  " + bulls + " Bulls, " + cows + " Cows.");
                 vibes.vibrate(200);
             }
         }
         else{
             //Display error to the user
-            message.setText("Please enter 4 numbers between 1 to 9, with no number occurring more than once");
+            message.setText("\n" +
+                    "Ingrese 4 números entre 1 y 9, sin que se produzcan más de una veze");
             vibes.vibrate(200);
         }
     }
@@ -192,15 +193,18 @@ public class StartGameActivity extends AppCompatActivity {
         inputNumber = (EditText) findViewById(R.id.input_number);
         triesText = (TextView) findViewById(R.id.text_view_tries);
         message = (TextView) findViewById(R.id.messages);
-        duckCount = (TextView) findViewById(R.id.text_view_ducks);
-        dragonCount = (TextView) findViewById(R.id.text_view_dragons);
+        duckCount = (TextView) findViewById(R.id.text_view_bulls);
+        dragonCount = (TextView) findViewById(R.id.text_view_cows);
         submitButton = (Button) findViewById(R.id.button_submit);
         vibes = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         // Form the number that will be guessed by the user
         numberFormation();
 
+        //validation numbers
+
+
         // right now we are displaying the text for debugging purpose, but we don't want to that later on
-        numberDisplay.setText("????");
+        numberDisplay.setText(numberFinal);
     }
 }

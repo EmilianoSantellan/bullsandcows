@@ -28,25 +28,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ducks: "
+            android:text="Bulls: "
             android:textSize="20sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ducks_count"
             android:layout_marginRight="20dp"
-            android:id="@+id/text_view_ducks"
+            android:id="@+id/text_view_bulls"
             android:textSize="20sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dragons: "
+            android:text="Cows: "
             android:textSize="20sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dragons_count"
-            android:id="@+id/text_view_dragons"
+            android:id="@+id/text_view_cows"
             android:layout_marginRight="20dp"
             android:textSize="20sp"/>
         <TextView
@@ -75,7 +75,7 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="Avanzar"
         android:id="@+id/button_submit"
         android:onClick="submitNumber"
         />
