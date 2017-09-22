@@ -9,4 +9,7 @@
     <string name="ducks_count">0</string>
     <string name="tries">0</string>
     <string name="dragons_count">0</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

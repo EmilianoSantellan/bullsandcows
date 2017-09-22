@@ -24,10 +24,11 @@ public class PlayerDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE" + PlayerEntry.TABLE_NAME + " ("
-                + PlayerEntry.ID + "INTEGER PRIMARY KEY AUTOINCREMENT,"
+        db.execSQL("CREATE TABLE " + PlayerEntry.TABLE_NAME + " ("
+                + PlayerEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + PlayerEntry.ID + " TEXT NOT NULL,"
                 + PlayerEntry.NAME + " TEXT NOT NULL,"
-                + PlayerEntry.ATTEMPTS + "INTEGER NOT NULL,"
+                + PlayerEntry.ATTEMPTS + " TEXT NOT NULL,"
                 + "UNIQUE (" + PlayerEntry.ID + "))"
         );
 
@@ -76,7 +77,7 @@ public class PlayerDbHelper extends SQLiteOpenHelper {
                 null,
                 null,
                 null,
-                PlayerEntry.ATTEMPTS + " DESC",
+                PlayerEntry.ATTEMPTS + " ASC",
                 "3"
         );
     }

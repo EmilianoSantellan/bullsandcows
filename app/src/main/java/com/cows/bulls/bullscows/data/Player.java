@@ -50,7 +50,5 @@ public class Player {
         return name;
     }
 
-    public String getAttempts() {
-        return  attempts;
-    }
+    public String getAttempts() { return  attempts; }
 }
