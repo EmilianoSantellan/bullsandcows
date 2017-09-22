@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:screenOrientation="sensorPortrait">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,17 +18,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".StartGameActivity"
+            android:name=".Activities.StartGameActivity"
             android:screenOrientation="sensorPortrait"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
+                android:value=".Activities.MainActivity"
                 />
         </activity>
-        <activity android:name=".TopPlayersActivity" />
-        <activity android:name=".HelpActivity"></activity>
+        <activity android:name=".Activities.TopPlayersActivity" />
+        <activity android:name=".Activities.HelpActivity"></activity>
     </application>
 
 </manifest>
