@@ -12,10 +12,6 @@ import com.cows.bulls.bullscows.R;
 import com.cows.bulls.bullscows.data.PlayerContract.PlayerEntry;
 
 /**
- * Created by Emiliano Santellan on 22/9/17.
- */
-
-/**
  * Adapters to Players
  */
 public class PlayersCursorAdapter extends CursorAdapter {

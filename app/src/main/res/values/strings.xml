@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Bulls and Cows</string>
     <string name="start_game">Nuevo Juego</string>
+    <string name="btn_game">Avanzar</string>
     <string name="top_players">Jugadores Top</string>
     <string name="help">Como Jugar?</string>
     <string name="action_settings">Ajustes</string>

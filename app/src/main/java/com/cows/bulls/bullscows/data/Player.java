@@ -6,10 +6,6 @@ import java.util.UUID;
 
 import com.cows.bulls.bullscows.data.PlayerContract.PlayerEntry;
 
-/**
- * Created by Emiliano Santellan on 21/9/2017.
- */
-
 /*
  * Entidad Player from players top
  */

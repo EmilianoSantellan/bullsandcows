@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class StartGameActivity extends AppCompatActivity {
 
     // GUI ELEMENTS
-    TextView numberDisplay, triesText, message, duckCount, dragonCount;
+    TextView numberDisplay, triesText, duckCount, dragonCount, debbugNumber;
     EditText inputNumber;
     Button submitButton;
     Vibrator vibes;
@@ -160,11 +160,11 @@ public class StartGameActivity extends AppCompatActivity {
                 dragonCount.setText(toString(cows));
 
                 triesText.setText(toString(tries));
-                message.setText("Veo que usted se está acercando! :)");
+                //message.setText("Veo que usted se está acercando! :)");
 
-                // when we have 4 dragons that means the game is over
+                // when we have 4 cows that means the game is over
                 if(cows == 4){
-                    message.setText("Usted ha adivinado el número en " + tries + " intentos, impresionante!" );
+                    //message.setText("Usted ha adivinado el número en " + tries + " intentos, impresionante!" );
                     inputNumber.setEnabled(false);
                     submitButton.setEnabled(false);
                     numberDisplay.setText(numberFinal);
@@ -174,14 +174,13 @@ public class StartGameActivity extends AppCompatActivity {
             else{
                 checkForBulls(currentGuess,numberToGuess);
                 checkForDragons(currentGuess,numberToGuess);
-                message.setText("Ya probaste esto y el resultado fue:  " + bulls + " Bulls, " + cows + " Cows.");
+                //message.setText("Ya probaste esto y el resultado fue:  " + bulls + " Bulls, " + cows + " Cows.");
                 vibes.vibrate(200);
             }
         }
         else{
             //Display error to the user
-            message.setText("\n" +
-                    "Ingrese 4 números entre 1 y 9, sin que se produzcan más de una veze");
+            //message.setText("\n Ingrese 4 números entre 1 y 9, sin que se produzcan más de una veze");
             vibes.vibrate(200);
         }
     }
@@ -193,9 +192,10 @@ public class StartGameActivity extends AppCompatActivity {
 
         // Give values to Views
         numberDisplay = (TextView) findViewById(R.id.finalNumber);
+        debbugNumber = (TextView) findViewById(R.id.debbugNumber);
         inputNumber = (EditText) findViewById(R.id.input_number);
         triesText = (TextView) findViewById(R.id.text_view_tries);
-        message = (TextView) findViewById(R.id.messages);
+        //message = (TextView) findViewById(R.id.messages);
         duckCount = (TextView) findViewById(R.id.text_view_bulls);
         dragonCount = (TextView) findViewById(R.id.text_view_cows);
         submitButton = (Button) findViewById(R.id.button_submit);
@@ -208,6 +208,7 @@ public class StartGameActivity extends AppCompatActivity {
 
 
         // right now we are displaying the text for debugging purpose, but we don't want to that later on
-        numberDisplay.setText(numberFinal);
+        numberDisplay.setText("????");
+        debbugNumber.setText(numberFinal);
     }
 }

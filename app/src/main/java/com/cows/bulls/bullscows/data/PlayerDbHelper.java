@@ -8,10 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.cows.bulls.bullscows.data.Player;
 import static com.cows.bulls.bullscows.data.PlayerContract.PlayerEntry;
 
-/**
- * Created by Emiliano Santellan on 21/9/2017.
- */
-
 public class PlayerDbHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "BullsandCows.db";
@@ -33,7 +29,7 @@ public class PlayerDbHelper extends SQLiteOpenHelper {
         );
 
         // A modo de desarrollo vamos a tener player top precargados
-        mockPlayerData(db);
+        //mockPlayerData(db);
     }
 
     @Override

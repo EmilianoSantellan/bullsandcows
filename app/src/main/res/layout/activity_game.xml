@@ -17,50 +17,15 @@
         android:layout_marginBottom="35dp"
         android:id="@+id/finalNumber"
         />
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="35dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bulls: "
-            android:textSize="20sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ducks_count"
-            android:layout_marginRight="20dp"
-            android:id="@+id/text_view_bulls"
-            android:textSize="20sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cows: "
-            android:textSize="20sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dragons_count"
-            android:id="@+id/text_view_cows"
-            android:layout_marginRight="20dp"
-            android:textSize="20sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tries: "
-            android:textSize="20sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tries"
-            android:textSize="20sp"
-            android:id="@+id/text_view_tries"/>
-    </LinearLayout>
+        android:text="@string/number_guess"
+        android:textSize="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/debbugNumber"
+        />
 
     <EditText
         android:layout_width="200dp"
@@ -75,18 +40,13 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Avanzar"
+        android:text="@string/btn_game"
         android:id="@+id/button_submit"
         android:onClick="submitNumber"
         />
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/messages"
-        android:text="A number has been generated, Let's start guessing!"
-        android:layout_marginTop="35dp"
-        android:textSize="20dp"
-        android:gravity="center"/>
+        android:layout_height="match_parent"></ScrollView>
 
 </LinearLayout>

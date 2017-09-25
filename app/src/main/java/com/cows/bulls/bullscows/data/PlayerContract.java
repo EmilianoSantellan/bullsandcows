@@ -3,10 +3,6 @@ package com.cows.bulls.bullscows.data;
 import android.provider.BaseColumns;
 
 /**
- * Created by Emiliano Santellan on 21/9/2017.
- */
-
-/**
  * Scheme of the database for Players
  */
 public class PlayerContract {
