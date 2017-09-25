@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.util.Log;
 
 import com.cows.bulls.bullscows.R;
 
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 public class StartGameActivity extends AppCompatActivity {
 
     // GUI ELEMENTS
-    TextView numberDisplay, triesText, duckCount, dragonCount, debbugNumber;
+    TextView numberDisplay, debbugNumber;
     EditText inputNumber;
     Button submitButton;
     Vibrator vibes;
@@ -43,7 +45,8 @@ public class StartGameActivity extends AppCompatActivity {
             b = random();
             c = random();
             d = random();
-        } while (a == 0 || b == 0 || c == 0 || d == 0 || a == b || a == c || a == d || b == c || b == d || c == d);
+        } while (a == 0 || a == b || a == c || a == d || b == c || b == d || c == d);
+
         numberToGuess[0] = a;
         numberToGuess[1] = b;
         numberToGuess[2] = c;
@@ -79,7 +82,7 @@ public class StartGameActivity extends AppCompatActivity {
     public int random(){
         double random = Math.random(); 		// random number is generated between 0.0 to 0.99
         random *= 9; 						// random number is multiplied by 100
-        random++; 							// 1 is added to random number
+        //random++; 							// 1 is added to random number
         int dieValue = (int)random; 		// random number is converted from double to int hence rounding "down" the number
         return dieValue;
     }
@@ -105,8 +108,8 @@ public class StartGameActivity extends AppCompatActivity {
         return false;
     }
 
-    // This methods checks for dragons
-    public void checkForDragons(int [] ar, int [] arr){
+    // This methods checks for cows
+    public void checkForCows(int [] ar, int [] arr){
         for (int i = 0; i < arr.length ; i++){
             if(ar[i] == arr[i]){
                 cows++;
@@ -118,11 +121,9 @@ public class StartGameActivity extends AppCompatActivity {
     public boolean checkForErrors(String string){
         if (string.length() == 4 && string.isEmpty() == false ){
             convert(numberGuessed, currentGuess);
+
             for(int i = 0; i < currentGuess.length ;i++){
                 switch (i){
-                    case 0: if (currentGuess[i] == currentGuess[1] || currentGuess[i] == currentGuess[2] || currentGuess[i] == currentGuess[3])
-                        return true;
-                        break;
                     case 1: if (currentGuess[i] == currentGuess[2] || currentGuess[i] == currentGuess[3])
                         return true;
                         break;
@@ -154,17 +155,17 @@ public class StartGameActivity extends AppCompatActivity {
 
                 tries++;
                 checkForBulls(currentGuess,numberToGuess);
-                duckCount.setText(toString(bulls));
+                //duckCount.setText(toString(bulls));
 
-                checkForDragons(currentGuess,numberToGuess);
-                dragonCount.setText(toString(cows));
+                checkForCows(currentGuess,numberToGuess);
+                //dragonCount.setText(toString(cows));
 
-                triesText.setText(toString(tries));
-                //message.setText("Veo que usted se está acercando! :)");
+                //triesText.setText(toString(tries));
+                showMessage("Veo que usted se está acercando! :)");
 
                 // when we have 4 cows that means the game is over
                 if(cows == 4){
-                    //message.setText("Usted ha adivinado el número en " + tries + " intentos, impresionante!" );
+                    showMessage("Usted ha adivinado el número en " + tries + " intentos, impresionante!" );
                     inputNumber.setEnabled(false);
                     submitButton.setEnabled(false);
                     numberDisplay.setText(numberFinal);
@@ -173,16 +174,25 @@ public class StartGameActivity extends AppCompatActivity {
             }
             else{
                 checkForBulls(currentGuess,numberToGuess);
-                checkForDragons(currentGuess,numberToGuess);
-                //message.setText("Ya probaste esto y el resultado fue:  " + bulls + " Bulls, " + cows + " Cows.");
+                checkForCows(currentGuess,numberToGuess);
+                showMessage("Ya probaste esto y el resultado fue:  " + bulls + " Bulls, " + cows + " Cows.");
                 vibes.vibrate(200);
             }
         }
         else{
             //Display error to the user
-            //message.setText("\n Ingrese 4 números entre 1 y 9, sin que se produzcan más de una veze");
+            showMessage("Verifique el número ingresado.");
             vibes.vibrate(200);
         }
+    }
+
+    private void showMessage(String msj) {
+        Context context = getApplicationContext();
+        CharSequence text = msj;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     @Override
@@ -194,10 +204,6 @@ public class StartGameActivity extends AppCompatActivity {
         numberDisplay = (TextView) findViewById(R.id.finalNumber);
         debbugNumber = (TextView) findViewById(R.id.debbugNumber);
         inputNumber = (EditText) findViewById(R.id.input_number);
-        triesText = (TextView) findViewById(R.id.text_view_tries);
-        //message = (TextView) findViewById(R.id.messages);
-        duckCount = (TextView) findViewById(R.id.text_view_bulls);
-        dragonCount = (TextView) findViewById(R.id.text_view_cows);
         submitButton = (Button) findViewById(R.id.button_submit);
         vibes = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 

@@ -11,12 +11,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pantalla 'Acerca de'"
-        android:textSize="30dp"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Contienen la descripcion del juego con las instrucciones de como jugar."
         android:textSize="25dp" />
 </LinearLayout>

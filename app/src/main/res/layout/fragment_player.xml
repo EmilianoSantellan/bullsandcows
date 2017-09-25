@@ -4,11 +4,42 @@
     android:layout_height="match_parent"
     tools:context="com.cows.bulls.bullscows.Fragments.PlayerFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="left"
+            android:textColor="#fff"
+            android:layout_weight="0.48"
+            android:textAlignment="center"
+            android:text="@string/player_name"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="right"
+            android:layout_weight="0.48"
+            android:textAlignment="center"
+            android:text="@string/player_attempts"
+            android:textColor="#fff" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/players_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@null"
+        android:divider="@color/colorPrimary"
+        android:dividerHeight="1px"
+        android:layout_marginTop="35dp"
         tools:listitem="@layout/list_item_player" />
 
 </FrameLayout>

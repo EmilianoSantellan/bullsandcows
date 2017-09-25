@@ -54,6 +54,8 @@ public class PlayerFragment extends Fragment {
         // Instance helper
         mPlayerDbHelper = new PlayerDbHelper(getActivity());
 
+        getActivity().setTitle(R.string.top_players);
+
         // Load Data
         loadPlayers();
 

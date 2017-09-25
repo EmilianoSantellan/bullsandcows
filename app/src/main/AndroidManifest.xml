@@ -27,8 +27,26 @@
                 android:value=".Activities.MainActivity"
                 />
         </activity>
-        <activity android:name=".Activities.TopPlayersActivity" />
-        <activity android:name=".Activities.HelpActivity"></activity>
+        <activity
+            android:label="@string/top_players"
+            android:name=".Activities.TopPlayersActivity"
+            android:screenOrientation="sensorPortrait"
+            android:parentActivityName=".Activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity"
+                />
+        </activity>
+        <activity
+            android:label="@string/help"
+            android:name=".Activities.HelpActivity"
+            android:screenOrientation="sensorPortrait"
+            android:parentActivityName=".Activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity"
+                />
+        </activity>
     </application>
 
 </manifest>

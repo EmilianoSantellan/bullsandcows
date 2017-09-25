@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:orientation="vertical"
     tools:context="com.cows.bulls.bullscows.Activities.MainActivity">
-
     <Button
-        android:layout_width="273dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="@string/start_game"
         android:elegantTextHeight="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,9 +21,8 @@
         android:onClick="startGame" />
 
     <Button
-        android:layout_width="273dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
         android:text="@string/top_players"
         android:elegantTextHeight="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,9 +33,8 @@
         android:onClick="topPlayers"/>
 
     <Button
-        android:layout_width="273dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
         android:text="@string/help"
         android:elegantTextHeight="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,5 +43,4 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textColor="#ff000000"
         android:onClick="help"/>
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
