@@ -1,5 +1,6 @@
 package com.cows.bulls.bullscows.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Activity;
@@ -8,13 +9,18 @@ import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.util.Log;
+import android.widget.ArrayAdapter;
+import java.util.List;
 
+import com.cows.bulls.bullscows.Fragments.AddPlayerFragment;
 import com.cows.bulls.bullscows.R;
 
 import java.util.ArrayList;
+
+import static com.cows.bulls.bullscows.R.id.add_edit_lawyer_container;
 
 public class StartGameActivity extends AppCompatActivity {
 
@@ -23,6 +29,8 @@ public class StartGameActivity extends AppCompatActivity {
     EditText inputNumber;
     Button submitButton;
     Vibrator vibes;
+    ListView tryList;
+    ArrayAdapter<String> attemptsAdapter;
 
     // LOGIC ELEMENTS
     int [] numberToGuess = new int[4];
@@ -35,6 +43,7 @@ public class StartGameActivity extends AppCompatActivity {
     String numberFinal;
     String numberGuessed;
     boolean valid;
+    List<String> attempts;
 
     // LOGIC METHOD
     // This method forms a string consisting of 4 random int (between 1-9) and puts it in a string numberFinal
@@ -65,7 +74,7 @@ public class StartGameActivity extends AppCompatActivity {
     public void convert(String string, int[] arr){
         int count = 0;
         for (int i = 0; i < arr.length; i++ ){
-            for(int z = 1; z < 10; z++){
+            for(int z = 0; z < 10; z++){
                 if( string.substring(i,i+1).equals(toString(z)) == true)
                     count++;
             }
@@ -122,16 +131,23 @@ public class StartGameActivity extends AppCompatActivity {
         if (string.length() == 4 && string.isEmpty() == false ){
             convert(numberGuessed, currentGuess);
 
-            for(int i = 0; i < currentGuess.length ;i++){
-                switch (i){
-                    case 1: if (currentGuess[i] == currentGuess[2] || currentGuess[i] == currentGuess[3])
-                        return true;
+            for(int i = 0; i < currentGuess.length ;i++) {
+                switch (i) {
+                    case 0:
+                        if (currentGuess[i] == currentGuess[1] || currentGuess[i] == currentGuess[2] || currentGuess[i] == currentGuess[3])
+                            return true;
                         break;
-                    case 2: if (currentGuess[i] == currentGuess[3])
-                        return true;
+                    case 1:
+                        if (currentGuess[i] == currentGuess[2] || currentGuess[i] == currentGuess[3])
+                            return true;
                         break;
-                    case 3: if (currentGuess[0] == 0 || currentGuess[1] == 0 || currentGuess[2] == 0  || currentGuess[3] == 0 )
-                        return true;
+                    case 2:
+                        if (currentGuess[i] == currentGuess[3])
+                            return true;
+                        break;
+                    case 3:
+                        if (currentGuess[0] == 0)
+                            return true;
                         break;
                 }
             }
@@ -163,6 +179,9 @@ public class StartGameActivity extends AppCompatActivity {
                 //triesText.setText(toString(tries));
                 showMessage("Veo que usted se está acercando! :)");
 
+                //
+                addAttempts();
+
                 // when we have 4 cows that means the game is over
                 if(cows == 4){
                     showMessage("Usted ha adivinado el número en " + tries + " intentos, impresionante!" );
@@ -170,6 +189,7 @@ public class StartGameActivity extends AppCompatActivity {
                     submitButton.setEnabled(false);
                     numberDisplay.setText(numberFinal);
                     vibes.vibrate(400);
+                    newPlayer();
                 }
             }
             else{
@@ -186,6 +206,12 @@ public class StartGameActivity extends AppCompatActivity {
         }
     }
 
+    private void newPlayer(){
+        Intent i = new Intent(getApplicationContext(), AddPlayerActivity.class);
+        i.putExtra("key",toString(tries));
+        startActivity(i);
+    }
+
     private void showMessage(String msj) {
         Context context = getApplicationContext();
         CharSequence text = msj;
@@ -193,6 +219,15 @@ public class StartGameActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
+    }
+
+    private void addAttempts() {
+        // add log attempts
+        attempts.add(numberGuessed + ": " + bulls + "B" + cows + "C");
+        // refresh data log
+        //attemptsAdapter.clear();
+        //attemptsAdapter.addAll(attempts);
+        attemptsAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -205,16 +240,19 @@ public class StartGameActivity extends AppCompatActivity {
         debbugNumber = (TextView) findViewById(R.id.debbugNumber);
         inputNumber = (EditText) findViewById(R.id.input_number);
         submitButton = (Button) findViewById(R.id.button_submit);
+        tryList = (ListView) findViewById(R.id.try_list);
+        attempts = new ArrayList<String>();
+        attemptsAdapter = new ArrayAdapter<String>(this, R.layout.list_item_attempt, R.id.textViewLog, attempts);
         vibes = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         // Form the number that will be guessed by the user
         numberFormation();
 
-        //validation numbers
-
-
         // right now we are displaying the text for debugging purpose, but we don't want to that later on
         numberDisplay.setText("????");
         debbugNumber.setText(numberFinal);
+
+        //
+        tryList.setAdapter(attemptsAdapter);
     }
 }

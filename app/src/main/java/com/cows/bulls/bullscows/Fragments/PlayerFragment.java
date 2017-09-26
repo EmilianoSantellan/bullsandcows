@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.net.Uri;
+import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -84,4 +86,16 @@ public class PlayerFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (Activity.RESULT_OK == resultCode) {
+            showSuccessfullSavedMessage();
+            loadPlayers();
+        }
+    }
+
+    private void showSuccessfullSavedMessage() {
+        Toast.makeText(getActivity(),
+                R.string.player_succefull, Toast.LENGTH_SHORT).show();
+    }
 }

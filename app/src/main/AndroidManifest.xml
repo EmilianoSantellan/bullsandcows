@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cows.bulls.bullscows">
+
     <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="sensorPortrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:screenOrientation="sensorPortrait">
+        android:theme="@style/AppTheme">
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,34 +21,31 @@
         </activity>
         <activity
             android:name=".Activities.StartGameActivity"
-            android:screenOrientation="sensorPortrait"
             android:parentActivityName=".Activities.MainActivity"
-            >
+            android:screenOrientation="sensorPortrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.MainActivity"
-                />
+                android:value=".Activities.MainActivity" />
         </activity>
         <activity
-            android:label="@string/top_players"
             android:name=".Activities.TopPlayersActivity"
-            android:screenOrientation="sensorPortrait"
-            android:parentActivityName=".Activities.MainActivity">
+            android:label="@string/top_players"
+            android:parentActivityName=".Activities.MainActivity"
+            android:screenOrientation="sensorPortrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.MainActivity"
-                />
+                android:value=".Activities.MainActivity" />
         </activity>
         <activity
-            android:label="@string/help"
             android:name=".Activities.HelpActivity"
-            android:screenOrientation="sensorPortrait"
-            android:parentActivityName=".Activities.MainActivity">
+            android:label="@string/help"
+            android:parentActivityName=".Activities.MainActivity"
+            android:screenOrientation="sensorPortrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.MainActivity"
-                />
+                android:value=".Activities.MainActivity" />
         </activity>
+        <activity android:name=".Activities.AddPlayerActivity"></activity>
     </application>
 
 </manifest>

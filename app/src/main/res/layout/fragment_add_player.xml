@@ -1,0 +1,36 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context="com.cows.bulls.bullscows.Fragments.AddPlayerFragment">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/player_name"
+            android:inputType="textPersonName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            tools:text="@string/player_name" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_check"
+        android:tint="@android:color/white"
+        app:fabSize="normal" />
+
+</LinearLayout>

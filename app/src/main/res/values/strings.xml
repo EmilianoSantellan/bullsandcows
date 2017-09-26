@@ -4,12 +4,12 @@
     <string name="btn_game">Avanzar</string>
     <string name="top_players">Jugadores Top</string>
     <string name="player_name">Nombre:</string>
+    <string name="winner_player">Nuevo Ganador</string>
     <string name="player_attempts">Intentos:</string>
     <string name="help">Como Jugar?</string>
     <string name="action_settings">Ajustes</string>
-    <string name="menu_item_1">Casual game mode</string>
+    <string name="btn_save">Guardar</string>
     <string name="number_guess">0000</string>
-    <string name="ducks_count">0</string>
-    <string name="tries">0</string>
-    <string name="dragons_count">0</string>
+    <string name="player_succefull">Jugador agregado correctamente</string>
+    <string name="field_error">Ingresa un valor</string>
 </resources>

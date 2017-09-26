@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:text="@string/number_guess"
         android:textSize="50dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:id="@+id/finalNumber"
         />
     <TextView
@@ -31,7 +31,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#88767676"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="5dp"
         android:inputType="number"
         android:id="@+id/input_number"
         android:maxLength="4"
@@ -45,8 +45,13 @@
         android:onClick="submitNumber"
         />
 
-    <ScrollView
+    <ListView
+        android:id="@+id/try_list"
+        android:layout_marginTop="35dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ScrollView>
+        android:layout_height="match_parent"
+        android:divider="@color/colorPrimary"
+        android:dividerHeight="1px"
+        tools:listitem="@layout/list_item_attempt" />
 
 </LinearLayout>
